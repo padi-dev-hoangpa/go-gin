@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "example/hoangdz/gin/square/square";
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.square";
+option java_outer_classname = "SquareProto";
+
+message Input {
+    int32 number = 1;
+}
+
+message Output {
+    int32 number = 1;
+    int32 result = 2;
+}
+
+service SquareRpc {
+    rpc findSquareUnary(Input) returns (Output) {};
+    rpc findSquareStream(stream Input) returns (stream Output) {};
+}
+
